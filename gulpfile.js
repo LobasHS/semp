@@ -10,20 +10,20 @@ var rename = require('gulp-rename');
 gulp.task('server', function() {
     browserSync.init({
         server: {
-            baseDir: "build"
+            baseDir: "buildProject"
         }
     });
     
-    gulp.watch("build/**/*.*").on('change',browserSync.reload);
+    gulp.watch("buildProject/**/*.*").on('change',browserSync.reload);
 });
 
 //pug compile
-gulp.task('templates:compile', function buildHTML() {
+gulp.task('templates:compile', function buildProjectHTML() {
     return gulp.src('sourse/template/index.pug')
         .pipe(pug({
             pretty: true
         }))
-        .pipe(gulp.dest("build"))
+        .pipe(gulp.dest("buildProject"))
 });
 
 //styles compile
@@ -31,7 +31,7 @@ gulp.task('styles:compile', function () {
     return gulp.src('sourse/styles/main.scss')
         .pipe(sass({outputStyle:'compressed'}).on('error', sass.logError))
         .pipe(rename('main.min.css'))
-        .pipe(gulp.dest('build/css'));
+        .pipe(gulp.dest('buildProject/css'));
 });
 
 //sprites
@@ -41,26 +41,26 @@ gulp.task('sprite', function (cb) {
         imgPath: 'sourse/images/sprite.png',
         cssName: 'sprite.scss'
     }));
-    spriteData.img.pipe(gulp.dest('build/images/'));
+    spriteData.img.pipe(gulp.dest('buildProject/images/'));
     spriteData.css.pipe(gulp.dest('sourse/styles/global/'));
     cb();
 });
 
 //Delete
 gulp.task("clean",function del(cb) {
-    return rimraf('build',cb);
+    return rimraf('buildProject',cb);
 });
 
 //copy fonts
 gulp.task('copy:fonts',function () {
     return gulp.src('./sourse/fonts/**/*.*')
-        .pipe(gulp.dest('build/fonts'))
+        .pipe(gulp.dest('buildProject/fonts'))
 });
 
 //copy images
 gulp.task('copy:images',function () {
     return gulp.src('./sourse/images/**/*.*')
-        .pipe(gulp.dest('build/images'))
+        .pipe(gulp.dest('buildProject/images'))
 });
 
 //copy

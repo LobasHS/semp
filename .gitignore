@@ -1,7 +1,7 @@
 .idea/
 node_modules
 npm-debug.log
-build
+/buildProject
 
 ### Windows template
 # Windows thumbnail cache files
@@ -26,6 +26,3 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
-
-
-/build./
