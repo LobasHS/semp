@@ -1,0 +1,7 @@
+nav.nav
+    -var items =['Home','About us','Our Approach','Our Work']
+    each item in items
+        if item === 'Home'
+            a.navLink.navLinkActive(href='#')=item
+        else
+            a.navLink(href='#'+item)=item
