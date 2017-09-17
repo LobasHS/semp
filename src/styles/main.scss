@@ -1,3 +1,24 @@
-body{
-  background: #fff;
-}
+@import "../../node_modules/font-awesome/scss/font-awesome";
+@import "../../node_modules/normalize.scss/normalize";
+
+//Import global styles
+//Import fonts
+@import "global/fonts";
+//Import variables scss
+@import "global/vars";
+//Import mixins
+@import "global/mixins";
+//Import base stale for tags
+@import "global/base";
+//Import sprites
+@import "global/sprite";
+//import common styles
+@import "global/common";
+//import buttons styles
+@import "global/button";
+
+//Import sections stales
+//Import header stales
+@import "sections/header";
+@import "sections/nav";
+
