@@ -16,10 +16,19 @@
 @import "global/common";
 //import buttons styles
 @import "global/button";
+//import icons
+@import "global/icons";
 
 //Import sections stales
 //Import header stales
+@import "sections/title";
 @import "sections/header";
 @import "sections/nav";
 @import "sections/hero";
+@import "sections/AboutUs";
+@import "sections/OurApproch";
+@import "sections/ourwork";
+@import "sections/form";
+@import "sections/footer";
+
 

@@ -1,0 +1,34 @@
+.title{
+  margin-bottom: 65px;
+  text-align: center;
+
+  @media (max-width: $tablet) {
+    margin-bottom: 40px;
+  }
+
+  &Header{
+    margin: 0;
+    font-size: 2.25rem;
+    font-family: $ff-main-bold;
+    line-height: 1;
+  }
+
+ &Text{
+   font-size: 1.25rem;
+   font-family: $ff-main-light;
+ }
+ &BottomLine{
+   position: relative;
+
+   &:after{
+     @include centerer-x();
+
+     content: '';
+     bottom: -16px;
+     width: 47px;
+     height: 5px;
+     background:$headerColorContact ;
+     border-radius: 1px;
+   }
+ }
+}

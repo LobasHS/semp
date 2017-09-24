@@ -1,0 +1,55 @@
+.work{
+  background-color: #de2b24;
+  padding: 110px 0 125px;
+  color: #fff;
+
+  @media (max-width: $tablet) {
+    padding: 45px 0;
+  }
+
+  .titleBottomLine{
+    &:after{
+      background:#fff;
+    }
+  }
+  &List{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+  }
+
+  &Item{
+    background: #f35e59;
+    position: relative;
+    color: #ffffff;
+    width: 255px;
+    height: 255px;
+
+    &Title {
+      position: relative;
+      padding: 130px 40px 75px 40px;
+      text-align: center;
+
+      &:before {
+        @include sprite($work-item);
+        @include centerer-x();
+        content: '';
+        top: 74px;
+      }
+    }
+
+  }
+  &Title{
+    font-size: 1.625rem;
+  }
+
+  &Picture{
+    width: 100%;
+    height: 100%;
+  }
+
+  &Description{
+    font-size: 1rem;
+  }
+}

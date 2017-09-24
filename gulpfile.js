@@ -7,6 +7,8 @@ var rimraf = require('rimraf');
 var rename = require('gulp-rename');
 var autoprefixer = require('gulp-autoprefixer');
 var sourcemaps = require('gulp-sourcemaps');
+var concat = require('gulp-concat');
+var uglify = require('gulp-uglify');
 
 //server
 gulp.task('server', function() {
@@ -39,11 +41,23 @@ gulp.task('styles:compile', function () {
         .pipe(gulp.dest('buildProject/css'));
 });
 
+gulp.task('js:compile',function () {
+    return gulp.src([
+            'src/js/form.js',
+            'src/js/main.js'
+        ])
+        .pipe(sourcemaps.init())
+        .pipe(concat('main.min.js'))
+        .pipe(uglify())
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest('buildProject/js'));
+});
+
 //sprites
 gulp.task('sprite', function (cb) {
     var spriteData = gulp.src('src/images/icon/*.png').pipe(spritesmith({
         imgName: 'sprite.png',
-        imgPath: 'src/images/sprite.png',
+        imgPath: '../images/sprite.png',
         cssName: 'sprite.scss'
     }));
     spriteData.img.pipe(gulp.dest('buildProject/images/'));
@@ -75,12 +89,13 @@ gulp.task('copy',gulp.parallel('copy:fonts','copy:images'));
 gulp.task('watch',function () {
     gulp.watch('src/template/**/*.pug', gulp.series('templates:compile'));
     gulp.watch('src/styles/**/*.scss', gulp.series('styles:compile'));
+    gulp.watch('src/js/**/*.js',gulp.series('js:compile'));
 });
 
 //default
 gulp.task('default', gulp.series(
     'clean',
-    gulp.parallel('templates:compile','styles:compile','sprite','copy'),
+    gulp.parallel('templates:compile','styles:compile','js:compile','sprite','copy'),
     gulp.parallel('watch','server')
     )
 );

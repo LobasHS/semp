@@ -1,0 +1,130 @@
+.approch{
+  padding:90px 0 130px;
+  background-color: $approchBGColor;
+
+  @media (max-width: $tablet) {
+    padding: 45px 0;
+  }
+
+  .titleText{
+    @media (max-width: $tablet) {
+      padding: 0 20px;
+    }
+  }
+
+  &List{
+    counter-reset: count;
+    margin: 0;
+    padding: 0;
+  }
+
+  &Item{
+    margin-bottom: 40px;
+    border-radius: 5px;
+    box-shadow: -1px -1px 10px 1px rgba(214,214,214,1);
+    color: $headerColorContact;
+    background: #fff;
+
+    &:last-child{
+     margin-bottom: 0;
+    }
+
+    &:nth-child(2n){
+      display: flex;
+      flex-direction: row-reverse;
+      text-align: right;
+
+      @media (max-width: $tablet) {
+        display: block;
+      }
+
+      .approchText{
+        padding: 70px 90px 0 0;
+
+        @media (max-width: $tablet) {
+          width: 100%;
+          text-align: center;
+          padding: 20px;
+        }
+      }
+
+      .approchStep{
+        right: auto;
+        left: -52px;
+      }
+    }
+  }
+
+  &Image{
+    position: relative;
+    max-width: 340px;
+    max-height: 236px;
+    display: inline-block;
+    vertical-align: top;
+
+    @media (max-width: $tablet) {
+      display: block;
+      margin: auto;
+    }
+  }
+
+  &Picture{
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  &Text{
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+    padding: 70px 0 0 90px;
+    font-size: 0.875rem;
+    
+    @media (max-width: $tablet) {
+      width: 100%;
+      text-align: center;
+      padding: 20px;
+    }
+
+  }
+
+  &Step{
+    @include centerer-y();
+    right: -58px;
+    width: 103px;
+    height: 103px;
+    padding-top: 10px;
+    border-radius: 5px;
+    border: 2px solid #fff;
+    text-align: center;
+    font-size: 1.25rem;
+    background-color: #de2b24;
+    color: #fff;
+
+    &:before{
+      content: counter(count);
+      counter-increment: count;
+      display: block;
+      font-family: $ff-steps;
+      font-size: 3rem;
+      line-height: 1;
+      color: #fff;
+    }
+
+    @media (max-width:$tablet ) {
+      display: none;
+    }
+  }
+
+  &Title{
+    margin-bottom: 6px;
+    font-size: 1.125rem;
+    font-family: $ff-main-bold;
+  }
+
+  &Desription{
+    margin: 0;
+    line-height: 1.5;
+  }
+}

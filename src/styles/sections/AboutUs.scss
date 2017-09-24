@@ -1,0 +1,55 @@
+.about {
+  padding: 105px 0 125px 0;
+  text-align: center;
+
+  @media (max-width: 840px) {
+    padding: 45px 0 ;
+  }
+
+
+  &List {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0 50px;
+
+    @media (max-width: 840px) {
+      justify-content: center;
+      padding: 0 25px;
+    }
+  }
+
+  &Item{
+    width: 25%;
+
+    @media (max-width: 840px) {
+      width: 50%;
+      padding: 10px;
+    }
+
+    @media (max-width: $mobil__l) {
+      width: 100%;
+      padding: 0;
+
+    }
+  }
+
+  &Header{
+    margin:0 0 12px 0;
+    font-size: 1.375rem;
+    font-family: $ff-main-bold;
+    color: $headerColorContact;
+  }
+
+  &Description{
+    margin-top: 0;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color:$aboutDescription;
+
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+}
