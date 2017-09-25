@@ -1,1 +1,1 @@
-# First sites
+# Example site
